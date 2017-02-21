@@ -1,0 +1,107 @@
+
+slide[f]
+// multiplier box
+
+// io block
+scape[b]{
+	// If the state of the box is state 0 -- needs a new number to multiply
+	if0{
+		// change box state to state 1 -- ready for second number
+		//#?
+		slide[d]
+		push1[u]
+		slide[u]
+		//#?
+		// slide the input value to the left
+		slide[l]
+		push[l]
+	} else {
+		if1{
+			// box state is 1 -- store value to left
+			
+			// debug: print the current value
+			//#?
+			slide[d]
+			push1[u]
+			slide[u]
+			//#?
+
+			slide[r]
+			push[r]
+			// store the input number to the right
+		} else {
+			// box state is 2 -- do multiplication
+
+			// create a temporary storage for first number
+			slide[r,f]
+			// load first number
+			slide[d]
+			push#u,l,b,l[u]
+			slide[u]
+			// return to center
+			// using a pathway that does not cause
+			// any "scape" actions to activate
+			slide[b,l]
+			//#?
+			push[d] // drop value
+			//#?
+
+			// drop multiply signal
+			push0[u,f,r,d]
+		}
+	}
+}
+slide[f,r]
+// counter block
+scape[u]{
+	//1337?
+	// make this the drop signal block -- when a signal comes from above,
+	// slide left, increase by second number, then return here
+	// and decrement the current value until it reaches 0
+	if0{
+		//888?
+		// go to accumulator block
+		slide[l]
+
+		// only happens when multiply engine has finished,
+
+		// -- drop current user value --
+		slide[d,b,b,u]
+		push[d]
+		slide[d,f,f,u]
+		// -----------------------------
+
+		// return the value in accumulator to user
+		push[b,b]
+	} else {
+		//111?
+
+		// decrement counter block (this)
+		push1[d]
+
+		// go to accumulator block
+		slide[l]
+		// increase by second value
+		slide[d]
+		push#u,b,r[u]
+		slide[u]
+		
+		// debug: print accumulator value
+		//#?
+
+		// slide left again to the repeater block
+		slide[l]
+	}
+}
+slide[l,l]
+// repeater block
+scape[r]{
+	// we arrive here mid-multiplication, when we want to return
+	// two blocks to the right and regenerate the first number
+	// contents found there
+	slide[r,r]
+	// drop multiply signal again
+	push0[r,u,l,d]
+}
+slide[r,b]
+slide[b]

@@ -1,0 +1,10 @@
+scape[b]{
+	push[u]
+	#u!
+	push[l]
+	#l!
+	push[r]
+	#r!
+	push[d]
+	#d!
+}

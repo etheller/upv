@@ -1,0 +1,21 @@
+scape[b]{
+	slide[r,d,l,l,u,u,r,r,d,l]
+	scape[b]{}
+	slide[f]
+	scape[b]{
+		slide[r,d,l,l,u,u,r,r,d,l]
+		scape[b]{}
+	}
+}
+(10,10,10)
+scape[b]{
+	slide[r]
+	if0{
+		
+	} else {
+		
+	}
+
+
+(0,0,0)
+

@@ -1,0 +1,56 @@
+scape[d]{
+	slide[f]
+	scape[b]{
+		if0{
+			slide[d]
+			push1[u]
+			slide[u]
+			slide[l]
+			push[l]
+		} else {
+			if1{
+				slide[d]
+				push1[u]
+				slide[u]
+				slide[r]
+				push[r]
+			} else {
+				slide[r,f]
+				slide[d]
+				push#u,l,b,l[u]
+				slide[u]
+				slide[b,l]
+				push[d]
+				push0[u,f,r,d]
+			}
+		}
+	}
+	slide[f,r]
+	scape[u]{
+		if0{
+			slide[l]
+			slide[d,b,b,u]
+			push[d]
+			slide[d,f,f,u]
+			#?
+			push[b,b]
+		} else {
+			push1[d]
+			slide[l]
+			slide[d]
+			push#u,b,r[u]
+			slide[u]
+			slide[l]
+		}
+	}
+	slide[l,l]
+	scape[r]{
+		slide[r,r]
+		push0[r,u,l,d]
+	}
+	slide[r,b]
+	slide[b]
+	scape[d]{
+	}
+}
+push0[d,u]
